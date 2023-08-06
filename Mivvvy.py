@@ -28,14 +28,11 @@ mizogg = f'''
 '''
 
 try:
-    filename = 'btc.bf'
-    file_path = os.path.join(os.path.dirname(__file__), filename)
-    with open(file_path, "rb") as fp:
+    with open('btc.bf', "rb") as fp:
         addfind = BloomFilter.load(fp)
 except FileNotFoundError:
     filename = 'btc.txt'
-    file_path = os.path.join(os.path.dirname(__file__), filename)
-    with open(file_path) as file:
+    with open(filename) as file:
         addfind = file.read().split()
 
 class CustomProgressBar(ProgressBar):
